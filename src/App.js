@@ -35,7 +35,6 @@ function App() {
   }, []);
 
   const onAddToCart = async (obj) => {
-    console.log(obj);
     if (cartItems.find((item) => item.id === obj.id)) {
       axios.delete(`https://63c21e388bb1ca34754e1bcc.mockapi.io/cart/${obj.id}`);
       setCartItems(prev => prev.filter(item => item.id !== obj.id))
@@ -43,7 +42,6 @@ function App() {
       const { data } = await axios.post('https://63c21e388bb1ca34754e1bcc.mockapi.io/cart', obj);
       setCartItems((prev) => [...prev, data]);
     }
-    console.log(cartItems);
   };
 
   const onRemoveItem = (id) => {
