@@ -16,6 +16,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 
   async function changeOrderState() {
     await delay(1000);
+    console.log(1); 
     await setIsOrderComplete(false);
   }
 
@@ -95,7 +96,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
             description={isOrderComplete ?
               `Ваш заказ #${orderId} скоро будет передан курьерской доставке` :
               "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."}
-             onGreenButton = {() => changeOrderState}/>
+             onGreenButton = {() => changeOrderState()}/>
        )}
       </div>
     </div>
