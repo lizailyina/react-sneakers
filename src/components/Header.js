@@ -13,14 +13,14 @@ function Header(props) {
           <img width={40} height={40} src="/img/logo.png" alt="Logotype" />
           <div>
             <h3 className="text-uppercase">React Sneakers</h3>
-            <p className="opacity-5">Магазин лучших кроссовок</p>
+            <p className="opacity-5">Best Sneakers Shop</p>
           </div>
         </div>
       </Link>
       <ul className="d-flex">
         <li onClick={props.onClickCart} className="mr-30 cu-p">
           <img width={18} height={18} src="/img/cart.svg" alt="Корзина" />
-          <span>{totalPrice} руб.</span>
+          <span>{totalPrice} RUB.</span>
         </li>
         <li className="mr-20 cu-p">
           <Link to="/favorites">

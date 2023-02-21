@@ -12,7 +12,7 @@ function Info({ image, title, description, onGreenButton }) {
             <p className="opacity-6">{description}</p>
             <button onClick={() => { setCartOpened(false); onGreenButton();}} className="greenButton">
                 <img src="/img/arrow.svg" alt="Arrow" />
-                Вернуться назад
+                Back
             </button>
         </div>
     );

@@ -16,7 +16,6 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 
   async function changeOrderState() {
     await delay(1000);
-    console.log(1); 
     await setIsOrderComplete(false);
   }
 
@@ -45,7 +44,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
     <div className={`${styles.overlay} ${opened && styles.overlayVisible}`}>
       <div className={`${styles.drawer}`}>
         <h2 className="d-flex justify-between mb-30">
-          Корзина <img onClick={onClose} className="cu-p" src="/img/btn-remove.svg" alt="Close" />
+          Cart <img onClick={onClose} className="cu-p" src="/img/btn-remove.svg" alt="Close" />
         </h2>
 
         {items.length > 0 ? (
@@ -60,7 +59,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 
                     <div className="mr-20 flex">
                       <p className="mb-5">{obj.title}</p>
-                      <b>{obj.price} руб.</b>
+                      <b>{obj.price} RUB.</b>
                     </div>
                     <img
                       onClick={() => onRemove(obj.itemId)}
@@ -75,27 +74,27 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
             <div className="cartTotalBlock">
               <ul>
                 <li>
-                  <span>Итого:</span>
+                  <span>Total:</span>
                   <div></div>
-                  <b>{totalPrice} руб. </b>
+                  <b>{totalPrice} RUB. </b>
                 </li>
                 <li>
-                  <span>Налог 5%:</span>
+                  <span>Tax 5%:</span>
                   <div></div>
-                  <b>{Math.round(totalPrice * 0.05)} руб. </b>
+                  <b>{Math.round(totalPrice * 0.05)} RUB. </b>
                 </li>
               </ul>
               <button disabled={isLoading} onClick={onClickOrder} className="greenButton">
-                Оформить заказ <img src="/img/arrow.svg" alt="Arrow" />
+                Place Your Order <img src="/img/arrow.svg" alt="Arrow" />
               </button>
             </div>
           </div>
         ) : (
           <Info image={isOrderComplete ? "/img/complete-order.jpg" : "/img/cart-empty.png"}
-            title={isOrderComplete ? "Заказ оформлен!" : "Корзина пустая"}
+            title={isOrderComplete ? "Order is Placed!" : "Cart is Empty"}
             description={isOrderComplete ?
-              `Ваш заказ #${orderId} скоро будет передан курьерской доставке` :
-              "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."}
+              `Your order #${orderId} will be delivered soon` :
+              "Add at least one sneakers to place an order."}
              onGreenButton = {() => changeOrderState()}/>
        )}
       </div>
